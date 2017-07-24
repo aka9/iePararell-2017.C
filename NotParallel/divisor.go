@@ -25,17 +25,7 @@ func main() {
 			fmt.Println(i)
 		}
     }
-	end := time.Since(start) // 計測終了
-
-	// 計測時間の単位をnsに統一
-	if 1 <= end/time.Second {
-		end = end/time.Second
-	} else if 1 <= end/time.Millisecond {
-		end = end/time.Millisecond
-	} else if 1 <= end/time.Microsecond {
-		end = end/time.Microsecond
-	}
-
+	end := time.Now() // 計測終了
 	// 実行時間を出力
-	log.Printf("%s", end)
+	log.Printf("%fs", (end.Sub(start)).Seconds())
 }
