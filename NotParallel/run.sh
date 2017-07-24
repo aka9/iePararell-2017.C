@@ -22,7 +22,7 @@ do
 done
 
 tmp1=`cat $tmpFile | cut -f3 -d" "` # 一時ファイルから実行時間のみを抽出
-tmp2=(`echo $tmp1 | cut -f1 -d"n"`) # 実行時間から単位を削除
+tmp2=(`echo $tmp1 | cut -f1 -d"s"`) # 実行時間から単位を削除
 
 # 実行時間の合計値を計算
 sum=$tmp2[1]; i=2; max=${#tmp2[*]}
