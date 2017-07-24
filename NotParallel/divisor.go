@@ -10,7 +10,7 @@ import "os"      // 引数の受け取り (配列Args)
 // 「divisorが2のとき」なのは、1を取り除くため
 func main() {
 	// 素数を求める範囲の最大値を引数として受け取る
-	max,_ := strconv.Atoi(os.Args[1])
+	max, _ := strconv.Atoi(os.Args[1])
 
 	// 計測開始
 	start := time.Now()
@@ -26,5 +26,16 @@ func main() {
 		}
     }
 	end := time.Since(start) // 計測終了
-	log.Printf("%s", end)    // 実行時間を出力
+
+	// 計測時間の単位をnsに統一
+	if 1 <= end/time.Second {
+		end = end/time.Second
+	} else if 1 <= end/time.Millisecond {
+		end = end/time.Millisecond
+	} else if 1 <= end/time.Microsecond {
+		end = end/time.Microsecond
+	}
+
+	// 実行時間を出力
+	log.Printf("%s", end)
 }

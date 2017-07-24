@@ -1,23 +1,23 @@
 #!/bin/zsh
 
 # Error
-if [ $# -eq 0 ]
+if [ $# -ne 2 ]
 then
-    echo 'Usage:' $0 '[実行回数]'
+    echo 'Usage:' $0 '[実行ファイル名] [実行回数]'
     exit
 fi
 
-maxPrime=10000       # 素数最大値
+execFile=$1        # 実行ファイル名
 tmpFile='time.tmp' # 途中経過の出力先ファイル
 outFile='time.txt' # 平均実行時間の出力先ファイル
 prlt='~'           # 標準出力の出力先ファイル
 
 # 任意の回数プログラムを実行
-i=1; max=$1
+i=1; max=$2
 while [ $i -le $max ]
 do
     echo 'Exec:' $i
-    go run divisor.go $maxPrime 2>> $tmpFile >$prlt
+    go run $execFile 2>> $tmpFile >$prlt
     i=$((i+1))
 done
 
