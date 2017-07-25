@@ -41,15 +41,16 @@ func main() {
 		wg.Add(1)
 		go func(i int) {
 			defer wg.Done() // この関数を終えた際, グループ数を1つ減らす
-                semaphore <- 1 // semaphoreを1加える
-                Worker(i)			  // Workerプロセスの代わりの関数
-                <- semaphore   // semaphoreを出す.
-            }(i)
+			semaphore <- 1 // semaphoreを1加える
+			Worker(i)			  // Workerプロセスの代わりの関数
+			<- semaphore   // semaphoreを出す.
+		}(i)
 	}
 
 	wg.Wait() // グループ数が0になくなるまで待つ.
-	end := time.Since(start) // 計測終了
-	log.Printf("%s", end)    // 実行時間を出力
+	end := time.Now() // 計測終了
+	// 実行時間を出力
+	log.Printf("%fs", (end.Sub(start)).Seconds())
 
 }
 

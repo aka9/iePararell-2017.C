@@ -19,26 +19,26 @@ func main() {
 
     // 等分を受け取る
     divided, _ := strconv.Atoi(os.Args[2])
-    
+
     // 最小数
     min := 0
-    
+
     // goroutineをグループで管理する変数
     var wg sync.WaitGroup
-    
+
     // 分割
     split := []int{min}
-    
+
     // 割り算
     quotient := max / divided
     remainder := max % divided
     if remainder != 0 {
-       quotient = quotient + 1
+		quotient = quotient + 1
     }
 
     //割り当て
     for i := 1; i <= quotient-1; i++ {
-        split = append(split , i*10)    
+        split = append(split , i*10)
     }
 
     //要素の最後にmaxを加える
@@ -64,16 +64,17 @@ func main() {
     for i := 1; i <= quotient; i++ {
         wg.Add(1)
         go func(i int) {
-                defer wg.Done()
-        semaphore <- 1 // semaphoreを1加える
-        Worker(split[i-1] , split[i])	 // Workerプロセスの代わりの関数
-        <- semaphore   // semaphoreを出す.
+			defer wg.Done()
+			semaphore <- 1 // semaphoreを1加える
+			Worker(split[i-1] , split[i])	 // Workerプロセスの代わりの関数
+			<- semaphore   // semaphoreを出す.
         }(i)
     }
 
     wg.Wait() // グループ数が0になくなるまで待つ.
-	end := time.Since(start) // 計測終了
-	log.Printf("%s", end)    // 実行時間を出力
+	end := time.Now() // 計測終了
+	// 実行時間を出力
+	log.Printf("%fs", (end.Sub(start)).Seconds())
 
 }
 
