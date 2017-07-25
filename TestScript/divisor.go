@@ -27,5 +27,5 @@ func main() {
     }
 	end := time.Now() // 計測終了
 	// 実行時間を出力
-	log.Printf("%fs", (end.Sub(start)).Seconds())
+	log.Printf("%d %f", max, (end.Sub(start)).Seconds())
 }
