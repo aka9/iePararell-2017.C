@@ -3,12 +3,13 @@
 # Error
 if [ $# -eq 0 ]
 then
-    echo 'Usage:' $0 '[素数探索最大値]'
+    echo 'Usage:' $0 '[素数探索最大範囲]'
     exit
 fi
 
+#span=$2            # 刻み幅
 span=10            # 刻み幅
-maxPrime=10000     # 素数最大値
+maxPrime=10000     # 素数探索最大範囲
 tmpFile='time.tmp' # 途中経過の出力先ファイル
 outFile='time.txt' # 平均実行時間の出力先ファイル
 prlt='~'           # 標準出力の出力先ファイル
