@@ -1,25 +1,25 @@
 #!/bin/zsh
 
 # Error
-if [ $# -eq 0 ]
+if [ $# -lt 3 ]
 then
-    echo 'Usage:' $0 '[素数探索最大範囲]'
+    echo 'Usage:' '[実行ファイル] [素数探索最大範囲] [刻み幅]'
     exit
 fi
 
-#span=$2            # 刻み幅
-span=10            # 刻み幅
-maxPrime=10000     # 素数探索最大範囲
+execFile=$1      
+max=$2             # 素数探索最大範囲
+span=$3            # 刻み幅
 tmpFile='time.tmp' # 途中経過の出力先ファイル
 outFile='time.txt' # 平均実行時間の出力先ファイル
 prlt='~'           # 標準出力の出力先ファイル
 
-# 任意の回数プログラムを実行
-i=1; max=$1
+# 素数探索最大範囲まで計算
+i=1;
 while [ $i -le $max ]
 do
     echo 'Exec:' $i
-    go run divisor.go $i 2>> $tmpFile >$prlt
+    go run $execFile $i 2>> $tmpFile >$prlt
     i=$((i+span))
 done
 
