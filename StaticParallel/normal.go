@@ -3,10 +3,14 @@ package main
 import (
     "fmt"
     "time"
+	"log"     // 実行時間の出力先変更 (メソッドPrintf)
+	"strconv" // 文字列の数値変換 （メソッドAtoi）
+	"os"      // 引数の受け取り (配列Args)
 )
 
 func main() {
-    max := 10000
+	// 素数を求める範囲の最大値を引数として受け取る
+	max, _ := strconv.Atoi(os.Args[1])
     fmt.Printf("%v 以下の素数:", max)
 
     start := time.Now() //Start
@@ -22,6 +26,7 @@ func main() {
             fmt.Printf(" %v", n)
         }
     }
-    goal := time.Now() //Goal
-    fmt.Printf("\n%v 経過", goal.Sub(start)) //経過時間を表示
+	end := time.Now() // 計測終了
+	// 実行時間を出力
+	log.Printf("max:%d %fs", max, (end.Sub(start)).Seconds())
 }

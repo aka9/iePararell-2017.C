@@ -74,7 +74,7 @@ func main() {
     wg.Wait() // グループ数が0になくなるまで待つ.
 	end := time.Now() // 計測終了
 	// 実行時間を出力
-	log.Printf("%fs", (end.Sub(start)).Seconds())
+	log.Printf("max:%d %fs", max, (end.Sub(start)).Seconds())
 
 }
 
