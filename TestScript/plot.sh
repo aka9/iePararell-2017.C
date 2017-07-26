@@ -24,7 +24,8 @@ do
 done
 
 tmp1=`cat $tmpFile | cut -f3,4 -d" "` # 一時ファイルから実行時間のみを抽出
-#tmp2=`echo $tmp1 | cut -f1 -d"s"` # 実行時間から単位を削除
+tmp2=`echo $tmp1 | tr 'max: ' ' '`
+tmp3=`echo $tmp2 | tr 's' ' '`
 
-echo $tmp1 > $outFile # 実行時間の書き出し
+echo $tmp3 > $outFile # 実行時間の書き出し
 rm $tmpFile $prlt     # 一時ファイルと標準出力ファイルを削除 
