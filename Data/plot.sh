@@ -9,8 +9,6 @@ set terminal svg
 set output "CmpareExecutionTime.svg"
 
 plot "NotParallel.dat" w lp
-#set terminal svg
-#plot "NotParallel.dat" w lp
 #plot "StaticParallel.dat" w lp
 #plot “DaynamParallel.dat" w lp
 PLOT
