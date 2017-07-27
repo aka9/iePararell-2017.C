@@ -41,3 +41,4 @@ tmp2=`echo $tmp1 | tr 'max: ' ' ' | tr 's' ' '` # 実行データからmax: と�
 
 echo $tmp2 > ${outFile}dat # 実行時間の書き出し
 rm $tmpFile $prlt          # 一時ファイルと標準出力ファイルを削除
+cp ${outFile}dat ../Data
