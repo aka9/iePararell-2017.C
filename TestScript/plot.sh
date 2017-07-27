@@ -13,6 +13,13 @@ span=$3                                # 刻み幅
 tmpFile='time.tmp'                     # 途中経過の出力先ファイル
 prlt='~'                               # 標準出力の出力先ファイル
 
+if [ $# -eq 4 ]
+then
+    max=$2
+    split=$3
+    span=$4
+fi
+
 # 実行ファイル名から，実行時間出力先ファイル名を取得
 outFile=`echo $execFile | rev | sed -e 's/og//' | rev`
 
