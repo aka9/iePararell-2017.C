@@ -13,8 +13,8 @@ span=$3                                # 刻み幅
 tmpFile='time.tmp'                     # 途中経過の出力先ファイル
 prlt='~'                               # 標準出力の出力先ファイル
 
-outFile=`echo $execFile | rev`
-outFile=`echo $outFile | sed -e 's/og//' | rev`
+# 実行ファイル名から，実行時間出力先ファイル名を取得
+outFile=`echo $execFile | rev | sed -e 's/og//' | rev`
 
 # 素数探索最大範囲まで計算
 i=1;
