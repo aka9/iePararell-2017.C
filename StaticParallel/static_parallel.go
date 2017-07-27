@@ -29,23 +29,23 @@ func main() {
 	finished := make(chan bool)
 	/************************************************/
 	go func(){
-        Prime(1, 25000)
+        Prime(1, max/4)
 		finished <- true
     }()//go func
 
 	/************************************************/
     go func(){
-        Prime(25001, 50000)
+        Prime((max/4)+1, max/2)
 		finished <- true
     }()//go func
 	/************************************************/
     go func(){
-        Prime(50001, 75000)
+        Prime((max/2)+1, (max*3)/4)
 		finished <- true
     }()//go func
 
 	go func(){
-        Prime(75001, max)
+        Prime(((max*3)/4)+1, max)
 		finished <- true
     }()//go func
 
