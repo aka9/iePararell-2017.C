@@ -7,7 +7,7 @@ then
     exit
 fi
 
-execFile=$1      
+execFile=$1
 max=$2             # 素数探索最大範囲
 span=$3            # 刻み幅
 tmpFile='time.tmp' # 途中経過の出力先ファイル
@@ -23,9 +23,8 @@ do
     i=$((i+span))
 done
 
-tmp1=`cat $tmpFile | cut -f3,4 -d" "` # 一時ファイルから実行時間のみを抽出
-tmp2=`echo $tmp1 | tr 'max: ' ' '`
-tmp3=`echo $tmp2 | tr 's' ' '`
+tmp1=`cat $tmpFile | cut -f3,4 -d" "`           # 一時ファイルから実行データを抽出
+tmp2=`echo $tmp1 | tr 'max: ' ' ' | tr 's' ' '` # 実行データからmax: と単位記号を除去
 
-echo $tmp3 > $outFile # 実行時間の書き出し
-rm $tmpFile $prlt     # 一時ファイルと標準出力ファイルを削除 
+echo $tmp2 > $outFile # 実行時間の書き出し
+rm $tmpFile $prlt     # 一時ファイルと標準出力ファイルを削除
