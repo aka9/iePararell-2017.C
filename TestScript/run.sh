@@ -13,7 +13,7 @@ span=$3                                # 刻み幅
 tmpFile='time.tmp'                     # 途中経過の出力先ファイル
 prlt='~'                               # 標準出力の出力先ファイル
 
-if [ -e $tmpFile or $prlt ]
+if [ -e $tmpFile ]
 then
     rm -f $tmpFile $prlt
 fi
