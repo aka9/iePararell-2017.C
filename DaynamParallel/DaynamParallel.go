@@ -46,7 +46,7 @@ func main() {
     split = append(split , max)
 
     //表示
-    fmt.Println(split)
+    //fmt.Println(split)
 
     // 実行環境のcpu数を取得し, 表示
     maxcpu := runtime.NumCPU()
