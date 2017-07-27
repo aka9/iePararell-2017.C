@@ -11,7 +11,7 @@ set output "CompareExecutionTime.svg"
 
 plot "NotParallel.dat" w lp,\
   "static_parallel.dat" w lp,\
-  “DaynamParallel.dat" w lp
+  "DaynamParallel.dat" w lp
 PLOT
 
 svg2pdf ${file}.svg ${file}.pdf
