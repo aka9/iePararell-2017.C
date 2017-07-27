@@ -13,24 +13,28 @@ span=$3                                # 刻み幅
 tmpFile='time.tmp'                     # 途中経過の出力先ファイル
 prlt='~'                               # 標準出力の出力先ファイル
 
-if [ $# -eq 4 ]
-then
-    max=$2
-    split=$3
-    span=$4
-fi
-
 # 実行ファイル名から，実行時間出力先ファイル名を取得
 outFile=`echo $execFile | rev | sed -e 's/og//' | rev`
 
 # 素数探索最大範囲まで計算
 i=1;
-while [ $i -le $max ]
-do
-    echo 'Exec:' $i
-    go run $execFile $i 2>> $tmpFile >$prlt
-    i=$((i+span))
-done
+if [ $# -eq 4 ]
+then
+    max=$2; split=$3; span=$4
+    while [ $i -le $max ]
+    do
+        echo 'Exec:' $i
+        go run $execFile $i $split 2>> $tmpFile >$prlt
+        i=$((i+span))
+    done
+else
+    while [ $i -le $max ]
+    do
+        echo 'Exec:' $i
+        go run $execFile $i 2>> $tmpFile >$prlt
+        i=$((i+span))
+    done       
+fi
 
 tmp1=`cat $tmpFile | cut -f3,4 -d" "`           # 一時ファイルから実行データを抽出
 tmp2=`echo $tmp1 | tr 'max: ' ' ' | tr 's' ' '` # 実行データからmax: と単位記号を除去
