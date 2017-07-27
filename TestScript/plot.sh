@@ -24,7 +24,7 @@ then
     while [ $i -le $max ]
     do
         echo 'Exec:' $i
-        go run $execFile $i $split 2>> $tmpFile >$prlt
+        go run $execFile $i $i 2>> $tmpFile >$prlt
         i=$((i+span))
     done
 else
