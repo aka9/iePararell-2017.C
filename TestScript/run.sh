@@ -13,6 +13,11 @@ span=$3                                # 刻み幅
 tmpFile='time.tmp'                     # 途中経過の出力先ファイル
 prlt='~'                               # 標準出力の出力先ファイル
 
+if [ -e $tmpFile or $prlt ]
+then
+    rm -f $tmpFile $prlt
+fi
+
 # 実行ファイル名から，実行時間出力先ファイル名を取得
 outFile=`echo $execFile | rev | sed -e 's/og//' | rev`
 
@@ -33,7 +38,7 @@ else
         echo 'Exec:' $i
         go run $execFile $i 2>> $tmpFile >$prlt
         i=$((i+span))
-    done       
+    done
 fi
 
 tmp1=`cat $tmpFile | cut -f3,4 -d" "`           # 一時ファイルから実行データを抽出
@@ -41,4 +46,4 @@ tmp2=`echo $tmp1 | tr 'max: ' ' ' | tr 's' ' '` # 実行データからmax: と�
 
 echo $tmp2 > ${outFile}dat # 実行時間の書き出し
 rm $tmpFile $prlt          # 一時ファイルと標準出力ファイルを削除
-cp ${outFile}dat ../Data
+mv ${outFile}dat ../Data
