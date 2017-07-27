@@ -19,6 +19,7 @@ func main() {
 
     // 等分を受け取る
     divided, _ := strconv.Atoi(os.Args[2])
+    task := max / divided 
 
     // 最小数
     min := 0
@@ -30,22 +31,22 @@ func main() {
     split := []int{min}
 
     // 割り算
-    quotient := max / divided
-    remainder := max % divided
+    quotient := max / task
+    remainder := max % task
     if remainder != 0 {
 		quotient = quotient + 1
     }
 
     //割り当て
     for i := 1; i <= quotient-1; i++ {
-        split = append(split , i*10)
+        split = append(split , i*task)
     }
 
     //要素の最後にmaxを加える
     split = append(split , max)
 
     //表示
-    //fmt.Println(split)
+    fmt.Println(split)
 
     // 実行環境のcpu数を取得し, 表示
     maxcpu := runtime.NumCPU()
