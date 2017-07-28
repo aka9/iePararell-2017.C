@@ -19,7 +19,7 @@ func main() {
 
     // 等分を受け取る
     divided, _ := strconv.Atoi(os.Args[2])
-    task := max / divided 
+    task := max / divided
 
     // 最小数
     min := 0
@@ -75,7 +75,8 @@ func main() {
     wg.Wait() // グループ数が0になくなるまで待つ.
 	end := time.Now() // 計測終了
 	// 実行時間を出力
-	log.Printf("max:%d %fs", max, (end.Sub(start)).Seconds())
+	//	log.Printf("max:%d %fs", max, (end.Sub(start)).Seconds())
+	log.Printf("divided:%d %fs", divided, (end.Sub(start)).Seconds())
 
 }
 
