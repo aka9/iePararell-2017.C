@@ -2,13 +2,11 @@
 
 execFile='DaynamParallel.go'
 outFile='DaynamParallel.dat'
-<<<<<<< HEAD
 max=100000                                 # 素数探索最大範囲
 span=1000                               # 刻み幅
 =======
 max=500000                                 # 素数探索最大範囲
 span=10                               # 刻み幅
->>>>>>> 09ef57abc74728fd7c430a94ccc41a5d54371983
 tmpFile='time.tmp'                     # 途中経過の出力先ファイル
 prlt='~'                               # 標準出力の出力先ファイル
 
@@ -18,11 +16,9 @@ then
 fi
 
 # 素数探索最大範囲まで計算
-<<<<<<< HEAD
 i=1000;
-=======
 i=5;
->>>>>>> 09ef57abc74728fd7c430a94ccc41a5d54371983
+
 while [ $i -le $max ]
 do
     echo 'Exec:' $i
