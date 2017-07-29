@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-max=100                         # 素数探索最大範囲
+max=500000                      # 素数探索最大範囲
 span=10                         # 刻み幅
 execFile='DaynamParallel.go'
 outFile='DaynamParallel.dat'
