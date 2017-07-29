@@ -3,6 +3,7 @@
 file='Number-of-Divisions'
 
 gnuplot<<PLOT
+set logscale x
 set xlabel "Number of Divisions"
 set ylabel "Execution Time"
 set title "Number of Divisions"
