@@ -19,7 +19,7 @@ func main() {
 
     // 等分を受け取る
     divided, _ := strconv.Atoi(os.Args[2])
-    task := max / divided 
+    task := max / divided
 
     // 最小数
     min := 0

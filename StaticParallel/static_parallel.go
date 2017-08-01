@@ -7,7 +7,6 @@ http://blog.excite.co.jp/exdev/27147029/
 10000くらいにしないと差がでませんでした！
 */
 
-
 package main
 
 import (
@@ -59,7 +58,6 @@ func main() {
 	// 実行時間を出力
 	log.Printf("max:%d %fs", max, (end.Sub(start)).Seconds())
 }
-
 
 func Prime(start int, max int) int {
 	var divisor int
