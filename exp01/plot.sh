@@ -3,7 +3,6 @@
 file='CompareExecutionTime'
 
 gnuplot<<PLOT
-set logscale x
 set xlabel "Prime Range"
 set ylabel "Execution Time (s)"
 set title "Compare Execution Time"
